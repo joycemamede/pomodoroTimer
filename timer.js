@@ -1,6 +1,6 @@
+//todo: usar timeMemo para dar feedback de tempo trabalhado
+//todo: criar alarme para quando o timer chegar ao fim
 
-
-//todo: fazer um if timeMemo < 50
 const work = 15;
 const smallBreak = 5;
 const bigBreak = 10;
@@ -14,9 +14,12 @@ let wasPaused = false;
 let wasStarted = false;
 let activity;
 
+
 //User activity input
 const activitySelection = document.querySelector('select');
+
 activitySelection.addEventListener('change', (event) => {
+
     activity = event.target.value;
     switch (activity) {
         case "work":
@@ -39,7 +42,6 @@ activitySelection.addEventListener('change', (event) => {
     reset();
 
     return activity;
-    
 })
 
 const reset = () => {
@@ -51,7 +53,6 @@ const reset = () => {
     wasPaused = false;
     wasStarted = false;
     clearInterval(timerInterval);
-    //document.getElementById("display").innerHTML = formatTime(work);
 }
 
 const formatTime = time => {
@@ -70,8 +71,6 @@ const formatTime = time => {
 function Timer(activity) {
 
     if (!wasStarted) {
-
-        console.log("comecei o ciclo, started = false");
 
         if (!wasStarted && !wasPaused) {
             timeLeft = activity;
@@ -102,22 +101,37 @@ function Timer(activity) {
                     console.log(`good job! you have worked for ${formatTime(timeMemo)} minutes. Time for a break?`);
                 }
                 
+                playSound("./audio/heyUrDone.mp3");
+
                 reset();   
             }
         }, 1000);
-
-        
     }
 };
 
 function pauseTimer() {
-    
-    timeLeftBeforePause = timeLeft;
-    timePassedBeforePause = timePassed;
-    document.getElementById("display").innerHTML = formatTime(timeLeftBeforePause);
-    clearInterval(timerInterval);
-    wasPaused = true;
-    wasStarted = false;
+
+    if (activity) {
+        timeLeftBeforePause = timeLeft;
+        timePassedBeforePause = timePassed;
+        document.getElementById("display").innerHTML = formatTime(timeLeftBeforePause);
+        clearInterval(timerInterval);
+        wasPaused = true;
+        wasStarted = false;
+    }
+}
+
+function endTimer() {
+
+    if (activity) {
+        reset();
+        document.getElementById("display").innerHTML = formatTime(activity);
+    }
+}
+
+function playSound(url) {
+    const audio = new Audio(url);
+    audio.play();
 }
 
 
