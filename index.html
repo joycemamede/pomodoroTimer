@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pomodoro Timer</title>
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body onload="reset()">
+
+    <!--Timer-->
+    <div class="timer-box">
+        <div class="tomato">
+            <!--img class="tomato-img" src="img/18616392_k3z9_6yiz_210608.jpg" title="Image by brgfx on Freepik"-->
+            <span id="display" class="time"></span>
+        </div>
+    </div>
+    <div class="button-box">
+        <!--botão iniciar-->
+        <button onclick="startTimer()" class="btn">Start</button>
+        <!--botão pausar-->
+        <button onclick="pauseTimer()" class="btn">Pause</button>
+        <!--botão encerrar-->
+        <button onclick="reset()" class="btn">Stop</button>
+    </div>
+
+    <script src="./timer.js"></script>
+</body>
+</html>
