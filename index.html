@@ -19,11 +19,17 @@
     </div>
     <div class="button-box">
         <!--botão iniciar-->
-        <button onclick="startTimer()" class="btn">Start</button>
+        <button onclick="Timer(activity)" class="btn">Start</button>
         <!--botão pausar-->
         <button onclick="pauseTimer()" class="btn">Pause</button>
         <!--botão encerrar-->
         <button onclick="reset()" class="btn">Stop</button>
+        <select name="select">
+            <option value="" disabled selected hidden>Select</option>
+            <option value="work">Work</option>
+            <option value="smallBreak">Small Break</option>
+            <option value="bigBreak">Big Break</option>
+        </select>
     </div>
 
     <script src="./timer.js"></script>
