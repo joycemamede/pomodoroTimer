@@ -111,6 +111,7 @@ function Timer(activity) {
 };
 
 function pauseTimer() {
+    
     timeLeftBeforePause = timeLeft;
     timePassedBeforePause = timePassed;
     document.getElementById("display").innerHTML = formatTime(timeLeftBeforePause);
