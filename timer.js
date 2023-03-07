@@ -1,9 +1,9 @@
 //todo: usar timeMemo para dar feedback de tempo trabalhado
 //todo: criar alarme para quando o timer chegar ao fim
 
-const work = 15;
-const smallBreak = 5;
-const bigBreak = 10;
+const work = 1500;
+const smallBreak = 300;
+const bigBreak = 600;
 let timePassed = 0;
 let timeLeft = 0; 
 let timerInterval = null;
